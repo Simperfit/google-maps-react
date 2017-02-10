@@ -22,7 +22,7 @@ export const ScriptCache = (function(global) {
         }
 
         Cache._scriptTag = (key, src) => {
-            if (!scriptMap.has(key)) {
+            if (!scriptMap.has(key) && typeof document !== 'undefined') {
                 let tag = document.createElement('script');
                 let promise = new Promise((resolve, reject) => {
                     let resolved = false,
